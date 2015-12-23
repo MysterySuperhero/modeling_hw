@@ -1,0 +1,1 @@
+![alt tag](https://pp.vk.me/c633923/v633923974/9ba9/pHB47obo3dY.jpg)
