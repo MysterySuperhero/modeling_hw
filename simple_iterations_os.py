@@ -30,7 +30,8 @@ def main():
 
 	iterations(u, v, prev)
 
-	print(v)
+	print("Steady vector: ", end="")
+	print_vector(v)
 
 	return
 
@@ -48,9 +49,8 @@ def iterations(u, v, prev):
 	iteration_os(u, v, prev)
 	print_info(u, v, prev)
 	while v != prev:
-		new_prev = v.copy()
+		prev = v.copy()
 		v = iteration_os(u, v, prev)
-		prev = new_prev
 		print_info(u, v, prev)
 	return
 
