@@ -1,4 +1,3 @@
-import collections
 from tools import *
 
 __author__ = 'dmitri'
@@ -28,10 +27,13 @@ def main():
 
 	initialization(u)
 
-	iterations(u, v, prev)
+	result = iterations(u, v, prev)
 
-	print("Steady vector: ", end="")
-	print_vector(v)
+	if result == 0:
+		print("Steady vector: ", end="")
+		print_vector(v)
+	else:
+		print("Holy shit!")
 
 	return
 
@@ -48,11 +50,13 @@ def initialization(u):
 def iterations(u, v, prev):
 	iteration_os(u, v, prev)
 	print_info(u, v, prev)
-	while v != prev:
+	steps_count = 0
+	while (v != prev) and (steps_count < 30):
 		prev = v.copy()
 		v = iteration_os(u, v, prev)
 		print_info(u, v, prev)
-	return
+		steps_count += 1
+	return 0 if steps_count != 30 else 1
 
 
 def print_info(u, v, prev):
