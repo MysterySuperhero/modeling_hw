@@ -56,13 +56,6 @@ def init_v():
 	return v
 
 
-def comp(list1, list2):
-	for val in list1.items():
-		if val not in list2.items():
-			return False
-	return True
-
-
 def find_differences(normal=list, fixed=list):
 	x = 0
 	while x < len(normal):
@@ -102,10 +95,6 @@ def main():
 	v[key] = value
 
 	fixed = get_fvectors(u, v, prev, key, int(value))
-
-	print_vector_collections(normal)
-	print("\n")
-	print_vector_collections(fixed)
 
 	find_differences(normal, fixed)
 

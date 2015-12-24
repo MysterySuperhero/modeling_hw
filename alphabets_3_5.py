@@ -4,7 +4,7 @@ __author__ = 'dmitri'
 
 
 def main():
-	print("Choose alphabet: ")
+	print("Choose alphabet: ") # просим пользователя выбрать алфавит
 	alphabet = input()
 
 	u_risky = {
