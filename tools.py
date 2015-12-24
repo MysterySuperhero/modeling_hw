@@ -101,13 +101,21 @@ def get_inverted_vector(vector=collections.OrderedDict):
 def check_faults(v=collections.OrderedDict, v_r=collections.OrderedDict, v_i=collections.OrderedDict, alphabet=int):
     errors = errors_three if alphabet == 3 else errors_five
     keys = v.keys()
-    azaza = errors.keys()
     for key in keys:
         s = str(v[key]) + str(v_r[key]) + str(v_i[key])
-        if s in errors.keys():
+        if s in errors:
             print(str(errors[s]) + " error " + str(s))
     return
 
+
+def steady_vector(u, v, prev):
+    iteration(u, v, prev)
+    steps_count = 0
+    while (v != prev) and (steps_count < 30):
+        prev = v.copy()
+        v = iteration(u, v, prev)
+        steps_count += 1
+    return 0 if steps_count != 30 else 1
 
 
 def increment_u(u):

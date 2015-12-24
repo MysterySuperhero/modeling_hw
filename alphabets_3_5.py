@@ -38,11 +38,11 @@ def main():
 		v_risky = v.copy()
 		v_inv = v.copy()
 
-		v = iteration(u, v, prev)
-		v_risky = iteration(u_risky, v_risky, prev)
-		v_inv = iteration(u_inv, v_inv, prev)
+		steady_vector(u, v, prev)
+		steady_vector(u_risky, v_risky, prev)
+		steady_vector(u_inv, v_inv, prev)
 
-		print_info(v, v_risky, v_inv)
+		print_info(u, v, v_risky, v_inv)
 
 		check_faults(v, v_risky, v_inv, 3)
 
@@ -53,7 +53,10 @@ def main():
 	return
 
 
-def print_info(v, v_r, v_i):
+def print_info(u, v, v_r, v_i):
+	print("U: ")
+	print_vector(u)
+	print("\n")
 	print("Normal V: ")
 	print_vector(v)
 	print("\n")
