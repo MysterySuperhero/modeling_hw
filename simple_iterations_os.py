@@ -4,6 +4,8 @@ __author__ = 'dmitri'
 
 
 def main():
+	# проинициализируем векторы U и V
+	# т.е. векторы входных и остальных переменных соответственно
 	u = {
 		'a': 0,
 		'b': 0,
@@ -23,21 +25,26 @@ def main():
 		'm': 0}
 	v = collections.OrderedDict(sorted(v.items()))
 
+	# вектор предыдущих значений остальных переменных
 	prev = v.copy()
 
+	# просим пользователя задать вектор входных значений
 	initialization(u)
 
+	# запустим итерационный цикл
 	result = iterations(u, v, prev)
 
+	# удалось получить установившееся состояние?
 	if result == 0:
 		print("Steady vector: ", end="")
 		print_vector(v)
 	else:
-		print("Holy shit!")
+		print("Can't get steady vector!")
 
 	return
 
 
+# фукнция ввода вектора входных значений
 def initialization(u):
 	print("Please, input (a, b, c, d, e, f): ")
 
@@ -47,6 +54,7 @@ def initialization(u):
 	return
 
 
+# функция, получения установишегося состояния
 def iterations(u, v, prev):
 	iteration_os(u, v, prev)
 	print_info(u, v, prev)
@@ -59,6 +67,7 @@ def iterations(u, v, prev):
 	return 0 if steps_count != 30 else 1
 
 
+# вывод на экран информации об итерации
 def print_info(u, v, prev):
 	print("Iteration: \n")
 	print("U vector: ", end="")

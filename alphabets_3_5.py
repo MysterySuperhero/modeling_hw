@@ -31,9 +31,9 @@ def modeling(u_risky, alphabet):
 		'f': 0}
 	u = collections.OrderedDict(sorted(u.items()))
 
-	u_inv = get_inverted_vector(u)
-
 	for i in range(0, 64):
+		u_inv = get_inverted_vector(u)
+
 		v = {
 			'g': 0,
 			'h': 0,
@@ -51,7 +51,7 @@ def modeling(u_risky, alphabet):
 		steady_vector(u_risky, v_risky, prev)
 		steady_vector(u_inv, v_inv, prev)
 
-		print_info(u, v, v_risky, v_inv)
+		print_info(u, u_inv, v, v_risky, v_inv)
 
 		check_faults(v, v_risky, v_inv, alphabet)
 
@@ -62,9 +62,12 @@ def modeling(u_risky, alphabet):
 	return
 
 
-def print_info(u, v, v_r, v_i):
+def print_info(u, u_inv, v, v_r, v_i):
 	print("U: ")
 	print_vector(u)
+	print("\n")
+	print("U inverted: ")
+	print_vector(u_inv)
 	print("\n")
 	print("Normal V: ")
 	print_vector(v)

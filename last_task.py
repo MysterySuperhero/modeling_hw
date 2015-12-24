@@ -74,6 +74,14 @@ def find_differences(normal=list, fixed=list):
 	return
 
 
+def print_vector_collections(collection=list):
+	x = 0
+	while x < len(collection):
+		print(collection[x])
+		x += 1
+	return
+
+
 def main():
 	u = init_u()
 	v = init_v()
@@ -94,6 +102,10 @@ def main():
 	v[key] = value
 
 	fixed = get_fvectors(u, v, prev, key, int(value))
+
+	print_vector_collections(normal)
+	print("\n")
+	print_vector_collections(fixed)
 
 	find_differences(normal, fixed)
 

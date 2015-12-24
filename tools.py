@@ -99,7 +99,7 @@ def get_inverted_vector(vector=collections.OrderedDict):
 
 
 def check_faults(v=collections.OrderedDict, v_r=collections.OrderedDict, v_i=collections.OrderedDict, alphabet=int):
-    errors = errors_three if alphabet == 3 else errors_five
+    errors = errors_three if int(alphabet) == 3 else errors_five
     keys = v.keys()
     for key in keys:
         s = str(v[key]) + str(v_r[key]) + str(v_i[key])
