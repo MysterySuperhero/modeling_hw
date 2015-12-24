@@ -118,6 +118,12 @@ def steady_vector(u, v, prev):
     return 0 if steps_count != 30 else 1
 
 
+def get_u_risky_5(u=collections.OrderedDict):
+    for x in u.keys():
+        u[x] = 3 if u[x] == 1 else 4
+    return
+
+
 def increment_u(u):
     if u['a'] == 0:
         u['a'] = 1

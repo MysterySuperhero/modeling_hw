@@ -4,6 +4,24 @@ __author__ = 'dmitri'
 
 
 def main():
+	print("Choose alphabet: ")
+	alphabet = input()
+
+	u_risky = {
+		'a': 2,
+		'b': 2,
+		'c': 2,
+		'd': 2,
+		'e': 2,
+		'f': 2}
+	u_risky = collections.OrderedDict(sorted(u_risky.items()))
+	if alphabet == 5:
+		get_u_risky_5(u_risky)
+
+	modeling(u_risky, alphabet)
+
+
+def modeling(u_risky, alphabet):
 	u = {
 		'a': 0,
 		'b': 0,
@@ -14,15 +32,6 @@ def main():
 	u = collections.OrderedDict(sorted(u.items()))
 
 	u_inv = get_inverted_vector(u)
-
-	u_risky = {
-		'a': 2,
-		'b': 2,
-		'c': 2,
-		'd': 2,
-		'e': 2,
-		'f': 2}
-	u_risky = collections.OrderedDict(sorted(u_risky.items()))
 
 	for i in range(0, 64):
 		v = {
@@ -44,7 +53,7 @@ def main():
 
 		print_info(u, v, v_risky, v_inv)
 
-		check_faults(v, v_risky, v_inv, 3)
+		check_faults(v, v_risky, v_inv, alphabet)
 
 		print("\n")
 
@@ -67,5 +76,6 @@ def print_info(u, v, v_r, v_i):
 	print_vector(v_i)
 	print("\n")
 	return
+
 
 main()
