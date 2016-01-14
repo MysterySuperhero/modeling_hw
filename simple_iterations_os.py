@@ -1,5 +1,5 @@
 from tools import *
-
+from schemes import print_scheme_os
 __author__ = 'dmitri'
 
 
@@ -46,6 +46,7 @@ def main():
 
 # фукнция ввода вектора входных значений
 def initialization(u):
+	print_scheme_os()
 	print("Please, input (a, b, c, d, e, f): ")
 
 	for x in u.items():

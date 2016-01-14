@@ -57,6 +57,3 @@ def print_scheme():
 		"\n"
 	)
 	return
-
-print_scheme_os()
-print_scheme()

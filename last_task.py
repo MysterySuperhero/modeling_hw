@@ -1,4 +1,5 @@
 from tools import *
+from schemes import print_scheme
 
 __author__ = 'dmitri'
 
@@ -74,6 +75,7 @@ def print_vector_collections(collection=list):
 
 
 def main():
+	print_scheme()
 	u = init_u()
 	v = init_v()
 	prev = v.copy()

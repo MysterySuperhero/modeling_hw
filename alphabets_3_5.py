@@ -1,9 +1,10 @@
 from tools import *
-
+from schemes import print_scheme
 __author__ = 'dmitri'
 
 
 def main():
+	print_scheme()
 	print("Choose alphabet: ")  # просим пользователя выбрать алфавит
 	alphabet = input()
 
