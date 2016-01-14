@@ -40,7 +40,7 @@ def h_os(c, d, l):
 
 
 def h(c, d):
-	return invert(conjunction[int(c)][(d)])
+	return invert(conjunction[int(c)][int(d)])
 
 
 def i(a, g):

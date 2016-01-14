@@ -4,7 +4,7 @@ __author__ = 'dmitri'
 
 
 def main():
-	print("Choose alphabet: ") # просим пользователя выбрать алфавит
+	print("Choose alphabet: ")  # просим пользователя выбрать алфавит
 	alphabet = input()
 
 	u_risky = {
@@ -15,6 +15,7 @@ def main():
 		'e': 2,
 		'f': 2}
 	u_risky = collections.OrderedDict(sorted(u_risky.items()))
+
 	if alphabet == 5:
 		get_u_risky_5(u_risky)
 

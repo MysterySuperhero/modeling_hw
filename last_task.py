@@ -4,31 +4,31 @@ __author__ = 'dmitri'
 
 
 def get_nvectors(u, v, prev):
-	azaza = []
+	vec = []
 	vv = v.copy()
 	for i in range(0, 64):
 		prev = v.copy()
 		steady_vector(u, v, prev)
-		azaza.append(v)
+		vec.append(v)
 		v = vv.copy()
 		increment_u(u)
 
-	return azaza
+	return vec
 
 
 def get_fvectors(u, v, prev, key, value=int):
-	azaza = []
+	vec = []
 	vv = v.copy()
 	for i in range(0, 64):
 		prev = v.copy()
 		steady_vector(u, v, prev)
 		v[key] = value
 		prev[key] = value
-		azaza.append(v)
+		vec.append(v)
 		v = vv.copy()
 		increment_u(u)
 
-	return azaza
+	return vec
 
 
 def init_u():
@@ -59,8 +59,6 @@ def init_v():
 def find_differences(normal=list, fixed=list):
 	x = 0
 	while x < len(normal):
-		a = normal[x]
-		b = fixed[x]
 		if not comp(normal[x], fixed[x]):
 			print("Set number: " + str(x))
 		x += 1
